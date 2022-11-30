@@ -27,7 +27,7 @@
         80
     ],
     // Use 'postCreateCommand' to run commands after the container is created.
-    "postCreateCommand": "cp .env.example .env && composer install && php artisan key:generate && yarn install && yarn run development",
+    "postCreateCommand": "cp .env.example .env && composer install && php artisan key:generate && npm install && npm run build",
     "portsAttributes": {
         "80": {
             "label": "HTTP"
