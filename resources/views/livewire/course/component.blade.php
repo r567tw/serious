@@ -1,5 +1,4 @@
 <div>
-    <h1 class="title">Use Livewire CRUD</h1>
 
     @if (session()->has('error'))
         <div class="alert alert-danger">
@@ -20,33 +19,37 @@
         @endif
     </div>
 
+    <div class="row">
+        <div class="col-sm-12">
+            @if ($updateMode)
+                @include('livewire.course.update')
+            @else
+                @include('livewire.course.create')
+            @endif
+        </div>
+    </div>
 
-    @if($updateMode)
-        @include('livewire.course.update')
-    @else
-        @include('livewire.course.create')
-    @endif
+    <br>
 
-
-    <table class="table table-bordered table-condensed">
-        <tr>
-            <td>ID</td>
-            <td>TITLE</td>
-            <td>DESCRIPTION</td>
-            <td>ACTION</td>
-        </tr>
-
-        @foreach($data as $row)
+    <div class="jumbotron">
+        <table class="table table-bordered table-condensed">
             <tr>
-                <td>{{$row->id}}</td>
-                <td>{{$row->title}}</td>
-                <td>{{$row->description}}</td>
-                <td width="100">
-                    <button wire:click="edit({{$row->id}})" class="btn btn-xs btn-warning">Edit</button>
-                    <button wire:click="destroy({{$row->id}})" class="btn btn-xs btn-danger">Del</button>
-                </td>
+                <td>ID</td>
+                <td>TITLE</td>
+                <td>ACTION</td>
             </tr>
-        @endforeach
-    </table>
+
+            @foreach ($data as $row)
+                <tr>
+                    <td>{{ $row->id }}</td>
+                    <td>{{ $row->title }}</td>
+                    <td>
+                        <button wire:click="edit({{ $row->id }})" class="btn btn-xs btn-warning">Edit</button>
+                        <button wire:click="destroy({{ $row->id }})" class="btn btn-xs btn-danger">Del</button>
+                    </td>
+                </tr>
+            @endforeach
+        </table>
+    </div>
 
 </div>

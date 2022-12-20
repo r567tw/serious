@@ -4,19 +4,19 @@
     </div>
 
     <div class="panel-body">
-        <div class="form-inline">
+        <div class="row">
             <input type="hidden" wire:model="selected_id">
-            <div class="input-group">
-                Title
-                <input wire:model="title" type="text" class="form-control input-sm">
+            <div class="col-sm-3">
+                <label for="title">Title</label>
+                <input id="title" wire:model="title" type="text" class="form-control input-sm">
             </div>
-            <div class="input-group">
-                Description
-                <input wire:model="description" type="text" class="form-control input-sm">
+            <div class="col-sm-3">
+                <label for="description">Description</label>
+                <input id="description" wire:model="description" type="text" class="form-control input-sm">
             </div>
-            <div class="input-group">
+            <div class="col-sm-3">
                 <br>
-                <button wire:click="update()" class="btn btn-default">Update</button>
+                <button wire:click="update()" class="btn btn-secondary">Update</button>
             </div>
         </div>
     </div>

@@ -1,4 +1,3 @@
 <x-livewire-layout>
-
-<livewire:counter />
+    <livewire:counter />
 </x-livewire-layout>
