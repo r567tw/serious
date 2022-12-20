@@ -8,8 +8,12 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900">
+                <div class="p-6 text-gray-800">
                     {{ __("You're logged in!") }}
+
+                    <br>
+                    <a class="btn btn-primary" href="/course-view">快速課程建立</a>
+
                 </div>
             </div>
         </div>
