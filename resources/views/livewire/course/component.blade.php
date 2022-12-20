@@ -1,9 +1,8 @@
 <div>
-    <div class="title">Laravel - Livewire CRUD</div>
+    <h1 class="title">Use Livewire CRUD</h1>
 
-    @if (count($errors) > 0)
+    @if (session()->has('error'))
         <div class="alert alert-danger">
-            <a href="#" class="close" data-dismiss="alert">&times;</a>
             <strong>Sorry!</strong> invalid input.<br><br>
             <ul style="list-style-type:none;">
                 @foreach ($errors->all() as $error)
@@ -12,6 +11,14 @@
             </ul>
         </div>
     @endif
+
+    <div>
+        @if (session()->has('message'))
+            <div class="alert alert-success">
+                {{ session('message') }}
+            </div>
+        @endif
+    </div>
 
 
     @if($updateMode)
