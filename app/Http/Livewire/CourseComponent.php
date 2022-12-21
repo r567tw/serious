@@ -3,9 +3,12 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use App\Models\Course;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
 
 class CourseComponent extends Component
 {
+    use LivewireAlert;
+
     public $data, $title, $description, $selected_id;
     public $updateMode = false;
 
@@ -34,8 +37,12 @@ class CourseComponent extends Component
         ]);
 
         $this->resetInput();
-        $this->emit('alert_remove');
-        session()->flash('message', 'Course successfully created.');
+        $this->alert('success', 'Post Created', [
+            'position' => 'center',
+            'timer' => 1000,
+            'toast' => false,
+            'timerProgressBar' => true,
+        ]);
     }
 
     public function edit($id)
@@ -66,8 +73,13 @@ class CourseComponent extends Component
 
             $this->resetInput();
             $this->updateMode = false;
-            $this->emit('alert_remove');
-            session()->flash('message', 'Course successfully updated.');
+
+            $this->alert('success', 'Course successfully updated.', [
+                'position' => 'center',
+                'timer' => 1000,
+                'toast' => false,
+                'timerProgressBar' => true,
+            ]);
         }
 
     }
@@ -77,8 +89,12 @@ class CourseComponent extends Component
         if ($id) {
             $record = Course::where('id', $id);
             $record->delete();
-            $this->emit('alert_remove');
-            session()->flash('message', 'Course successfully deleted.');
+            $this->alert('info', 'Course successfully deleted.', [
+                'position' => 'center',
+                'timer' => 1000,
+                'toast' => false,
+                'timerProgressBar' => true,
+            ]);
         }
     }
 
@@ -87,8 +103,13 @@ class CourseComponent extends Component
         if ($id) {
             $course = Course::find($id);
             $course->vote(auth()->user());
-            $this->emit('alert_remove');
-            session()->flash('message', 'voted.');
+
+            $this->alert('success', 'voted.', [
+                'position' => 'center',
+                'timer' => 3000,
+                'toast' => false,
+                'timerProgressBar' => true,
+            ]);
         }
     }
 }
