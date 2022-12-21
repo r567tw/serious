@@ -17,7 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('title',20);
             $table->text('description');
-            // $table->bigint('teacher_id');
+            $table->string('status')->default('init');
+            $table->integer('voted')->default(0);
             $table->timestamps();
         });
     }
