@@ -23,8 +23,8 @@ class CourseComponent extends Component
 
     public function store()
     {
-        $error = $this->validate([
-            'title'       => 'required|min:2',
+        $this->validate([
+            'title'       => 'required|min:2|max:20',
             'description' => 'required|max:200'
         ]);
 
@@ -34,8 +34,8 @@ class CourseComponent extends Component
         ]);
 
         $this->resetInput();
+        $this->emit('alert_remove');
         session()->flash('message', 'Course successfully created.');
-
     }
 
     public function edit($id)
@@ -51,7 +51,7 @@ class CourseComponent extends Component
 
     public function update()
     {
-        $errors = $this->validate([
+        $this->validate([
             'selected_id' => 'required|numeric',
             'title' => 'required|min:2',
             'description' => 'required|max:200'
@@ -66,6 +66,7 @@ class CourseComponent extends Component
 
             $this->resetInput();
             $this->updateMode = false;
+            $this->emit('alert_remove');
             session()->flash('message', 'Course successfully updated.');
         }
 
@@ -76,6 +77,7 @@ class CourseComponent extends Component
         if ($id) {
             $record = Course::where('id', $id);
             $record->delete();
+            $this->emit('alert_remove');
             session()->flash('message', 'Course successfully deleted.');
         }
     }
@@ -85,6 +87,7 @@ class CourseComponent extends Component
         if ($id) {
             $course = Course::find($id);
             $course->vote(auth()->user());
+            $this->emit('alert_remove');
             session()->flash('message', 'voted.');
         }
     }

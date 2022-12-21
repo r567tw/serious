@@ -1,6 +1,6 @@
 <div>
 
-    @if (session()->has('error'))
+    @if (count($errors) > 0)
         <div class="alert alert-danger">
             <strong>Sorry!</strong> invalid input.<br><br>
             <ul style="list-style-type:none;">
