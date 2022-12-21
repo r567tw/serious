@@ -4,7 +4,7 @@ services:
   mariadb:
     image: docker.io/bitnami/mariadb:10.6
     volumes:
-      - './.vscode/data:/bitnami/mariadb'
+      - './.vscode/mariadb:/bitnami/mariadb'
     ports:
       - '3307:3306'
     environment:
