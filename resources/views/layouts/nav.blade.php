@@ -20,6 +20,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/dashboard">Dashboard</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/course-view">Courses</a>
+                </li>
             </ul>
 
             <ul class="navbar-nav me-2 mb-lg-0">

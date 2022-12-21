@@ -79,4 +79,13 @@ class CourseComponent extends Component
             session()->flash('message', 'Course successfully deleted.');
         }
     }
+
+    public function vote($id)
+    {
+        if ($id) {
+            $course = Course::find($id);
+            $course->vote(auth()->user());
+            session()->flash('message', 'voted.');
+        }
+    }
 }

@@ -36,6 +36,7 @@
             <tr>
                 <td>ID</td>
                 <td>TITLE</td>
+                <td>COUNT</td>
                 <td>ACTION</td>
             </tr>
 
@@ -43,9 +44,13 @@
                 <tr>
                     <td>{{ $row->id }}</td>
                     <td>{{ $row->title }}</td>
+                    <td>{{ $row->votes->count() }}</td>
                     <td>
                         <button wire:click="edit({{ $row->id }})" class="btn btn-xs btn-warning">Edit</button>
                         <button wire:click="destroy({{ $row->id }})" class="btn btn-xs btn-danger">Del</button>
+                        @auth
+                            <button wire:click="vote({{ $row->id }})" class="btn btn-xs btn-info">Vote</button>
+                        @endauth
                     </td>
                 </tr>
             @endforeach
