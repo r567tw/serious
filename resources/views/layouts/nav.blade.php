@@ -14,14 +14,20 @@
 
         <!-- Collapsible wrapper -->
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mb-2 mb-lg-0">
+            <ul class="navbar-nav mb-2 me-auto mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="/course-view">Courses</a>
+                </li>
+            </ul>
+
+            <ul class="navbar-nav mr-sm-2">
                 @auth
                     <div class="dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                             {{ auth()->user()->name }}
                         </a>
 
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink">
                             <li><a class="dropdown-item" href="{{ route('profile.edit') }}">{{ __('Profile') }}</a></li>
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
@@ -38,9 +44,6 @@
                         <a class="nav-link" href="/register">Register</a>
                     </li>
                 @endauth
-                <li class="nav-item">
-                    <a class="nav-link" href="/course-view">Courses</a>
-                </li>
             </ul>
         </div>
     </div>
