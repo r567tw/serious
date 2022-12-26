@@ -1,4 +1,3 @@
 <x-livewire-layout>
-    <h1>登入入口</h1>
-    
+    <livewire:course-component />
 </x-livewire-layout>
