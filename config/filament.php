@@ -61,7 +61,7 @@ return [
     |
     */
 
-    'home_url' => '/',
+    'home_url' => '/admin',
 
     /*
     |--------------------------------------------------------------------------
@@ -140,7 +140,8 @@ return [
         'path' => app_path('Filament/Widgets'),
         'register' => [
             Widgets\AccountWidget::class,
-            Widgets\FilamentInfoWidget::class,
+            \App\Filament\Resources\CourseResource\Widgets\CourseOverview::class
+            // Widgets\FilamentInfoWidget::class,
         ],
     ],
 
