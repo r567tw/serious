@@ -1,1 +1,1 @@
-docker exec -it serious-myapp-1 /bin/bash
+docker exec -it open-course-myapp-1 /bin/bash
