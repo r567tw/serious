@@ -1,20 +1,29 @@
 <?php
+
 namespace App\Http\Livewire;
 
-use Livewire\Component;
 use App\Models\Course;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
+use Livewire\Component;
 
 class CourseComponent extends Component
 {
     use LivewireAlert;
 
-    public $data, $title, $description, $selected_id;
+    public $data;
+
+    public $title;
+
+    public $description;
+
+    public $selected_id;
+
     public $updateMode = false;
 
     public function render()
     {
         $this->data = Course::all();
+
         return view('livewire.course.component');
     }
 
@@ -27,13 +36,13 @@ class CourseComponent extends Component
     public function store()
     {
         $this->validate([
-            'title'       => 'required|min:2|max:20',
-            'description' => 'required|max:200'
+            'title' => 'required|min:2|max:20',
+            'description' => 'required|max:200',
         ]);
 
         Course::create([
             'title' => $this->title,
-            'description' => $this->description
+            'description' => $this->description,
         ]);
 
         $this->resetInput();
@@ -61,14 +70,14 @@ class CourseComponent extends Component
         $this->validate([
             'selected_id' => 'required|numeric',
             'title' => 'required|min:2',
-            'description' => 'required|max:200'
+            'description' => 'required|max:200',
         ]);
 
         if ($this->selected_id) {
             $record = Course::find($this->selected_id);
             $record->update([
                 'title' => $this->title,
-                'description' => $this->description
+                'description' => $this->description,
             ]);
 
             $this->resetInput();
@@ -81,7 +90,6 @@ class CourseComponent extends Component
                 'timerProgressBar' => true,
             ]);
         }
-
     }
 
     public function destroy($id)

@@ -7,7 +7,7 @@ use Filament\Widgets\StatsOverviewWidget\Card;
 
 class CourseOverview extends BaseWidget
 {
-    protected int | string | array $columnSpan = [
+    protected int|string|array $columnSpan = [
         'md' => 3,
         'xl' => 3,
     ];

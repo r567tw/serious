@@ -140,7 +140,7 @@ return [
         'path' => app_path('Filament/Widgets'),
         'register' => [
             Widgets\AccountWidget::class,
-            \App\Filament\Resources\CourseResource\Widgets\CourseOverview::class
+            \App\Filament\Resources\CourseResource\Widgets\CourseOverview::class,
             // Widgets\FilamentInfoWidget::class,
         ],
     ],
